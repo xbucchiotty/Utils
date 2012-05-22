@@ -11,7 +11,7 @@ import java.util.Collection;
 public abstract class FunctionHelper {
 
 
-    public static <I, O> O reduce(Reducer<I, O> reducer, Collection<I> inputs) {
+    public static <I, O> O reduce(Reducer<I, O> reducer, Iterable<I> inputs) {
         for (I input : inputs) {
             reducer.agrege(input);
         }
@@ -27,8 +27,8 @@ public abstract class FunctionHelper {
         return reducer.getResult();
     }
 
-    public static <I, O> Collection<O> map(Converter<I, O> converter, Collection<I> inputs) {
-        Collection<O> convertedObjects = new ArrayList<O>(inputs.size());
+    public static <I, O> Collection<O> map(Converter<I, O> converter, Iterable<I> inputs) {
+        Collection<O> convertedObjects = new ArrayList<O>();
         for (I input : inputs) {
             convertedObjects.add(converter.convert(input));
         }
