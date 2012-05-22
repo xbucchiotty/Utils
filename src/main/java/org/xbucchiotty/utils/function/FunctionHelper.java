@@ -36,4 +36,13 @@ public abstract class FunctionHelper {
         return convertedObjects;
     }
 
+    public static <I, O> Collection<O> map(Converter<I, O> converter, I... inputs) {
+        Collection<O> convertedObjects = new ArrayList<O>(inputs.length);
+        for (I input : inputs) {
+            convertedObjects.add(converter.convert(input));
+        }
+
+        return convertedObjects;
+    }
+
 }
