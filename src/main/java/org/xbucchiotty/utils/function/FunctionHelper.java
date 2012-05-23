@@ -59,10 +59,4 @@ public abstract class FunctionHelper {
         return convertedObjects;
     }
 
-
-    @Null
-    public static <O> O getOrDefault(@NotNull Optional<O> optional, @Null O defaultValue) {
-        checkArgument(optional != null);
-        return optional.or(defaultValue);
-    }
 }
